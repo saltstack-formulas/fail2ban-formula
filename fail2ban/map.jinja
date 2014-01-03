@@ -1,0 +1,14 @@
+{% set fail2ban = salt['grains.filter_by']({
+    'Debian': {
+        'package': 'fail2ban',
+        'service': 'fail2ban',
+        'jails_config': '/etc/fail2ban/jail.local',
+        'jails_config_src': 'salt://fail2ban/files/jail.local',
+    },
+    'RedHat': {
+        'package': 'fail2ban',
+        'service': 'fail2ban',
+        'jails_config': '/etc/fail2ban/jail.local',
+        'jails_config_src': 'salt://fail2ban/files/jail.local',
+    },
+}, merge=salt['pillar.get']('fail2ban:lookup')) %}

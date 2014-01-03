@@ -1,0 +1,26 @@
+fail2ban:
+  default:
+    ignoreip: 127.0.0.1/8
+    bantime: 600
+    maxretry: 3
+    backend: auto
+    destemail: root@localhost
+    banaction: iptables-multiport
+    mta: postfix
+  jails:
+    ssh:
+      enabled: "true" # without quotes, this is interpreted as a boolean
+      port: ssh
+      filter: sshd
+      action:
+        - iptables[name=SSH, port=SSH, protocol=tcp]
+        - mail-whois[name=SSH]
+      logpath: "/var/log/auth.log"
+      maxretry: 6
+    dropbear:
+      enabled: "false"
+      port: ssh
+      filter: sshd
+      logpath: /var/log/dropbear
+      maxretry: 6
+
