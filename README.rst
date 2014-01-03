@@ -1,6 +1,5 @@
 salt-fail2ban-formula
 =====================
-
 ``fail2ban`` scans log files for malicious activity and executes actions based on what it finds.
 
 Configuration
@@ -11,7 +10,6 @@ Next, it uses ``/etc/fail2ban/jail.local`` to override settings from ``jail.conf
 
 States
 ------
-
 ``fail2ban``
     Install the ``fail2ban`` package and enable the service.
 ``fail2ban.config``
