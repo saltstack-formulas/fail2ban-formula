@@ -13,7 +13,7 @@ fail2ban:
       port: ssh
       filter: sshd
       action:
-        - iptables[name=SSH, port=SSH, protocol=tcp]
+        - iptables[name=SSH, port=ssh, protocol=tcp]
         - mail-whois[name=SSH]
       logpath: "/var/log/auth.log"
       maxretry: 6
