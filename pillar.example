@@ -1,26 +1,36 @@
 fail2ban:
-  default:
-    ignoreip: 127.0.0.1/8
-    bantime: 600
-    maxretry: 3
-    backend: auto
-    destemail: root@localhost
-    banaction: iptables-multiport
-    mta: postfix
-  jails:
-    ssh:
-      enabled: "true" # without quotes, this is interpreted as a boolean
-      port: ssh
-      filter: sshd
-      action:
-        - iptables[name=SSH, port=ssh, protocol=tcp]
-        - mail-whois[name=SSH]
-      logpath: "/var/log/auth.log"
-      maxretry: 6
-    dropbear:
-      enabled: "false"
-      port: ssh
-      filter: sshd
-      logpath: /var/log/dropbear
-      maxretry: 6
-
+    lookup:
+        config:
+            loglevel: 2
+            ignoreip: 127.0.0.1/8
+            bantime: 600
+            maxretry: 3
+            backend: auto
+        jails:
+            ssh:
+                action:
+                    - iptables[name=SSH, port=ssh, protocol=tcp]
+                enabled: 'true'
+                filter: sshd
+                logpath: /var/log/auth.log
+                maxretry: 6
+                port: ssh
+            ssh_ddos:
+                action:
+                    - iptables[name=SSH, port=ssh, protocol=tcp]
+                enabled: 'true'
+                filter: sshd-ddos
+                logpath: /var/log/auth.log
+                maxretry: 6
+                port: ssh
+            nginx-noscript:
+                action:
+                    - iptables-multiport[name=NoScript, port="http,https"]
+                enabled: 'true'
+                filter: nginx-noscript
+                logpath: /var/log/nginx*/*access*.log
+                maxretry: 6
+                port: http,https
+        filters:
+            nginx-noscript:
+                failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
