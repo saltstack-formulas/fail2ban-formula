@@ -1,10 +1,5 @@
-{%- set fail2ban = pillar.get('fail2ban', {}) %}
-{%- set defaults = fail2ban.get('default', {}) %}
-{%- set jails = fail2ban.get('jails', {}) %}
 #
 # This file is managed by salt.
-# Modify the config that generates this file instead of
-# jail.conf.
 #
 
 {%- macro print_config(name, value) %}
@@ -24,18 +19,9 @@
     {%- endif %}
 {%- endmacro %}
 
-{%- if defaults %}
-[DEFAULT]
-{%- for name, value in defaults.iteritems() %}
+{% for section, section_data in config|dictsort %}
+[{{section}}]
+{%- for name, value in section_data|dictsort %}
 {{- print_config(name, value) }}
 {%- endfor %}
-{% endif %}
-{%- for jail, configs in jails.iteritems() %}
-    {%- if configs is mapping %}
-[{{ jail }}]
-        {%- for name, value in configs.iteritems() %}
-{{- print_config(name, value) }}
-        {%- endfor %}
-    {%- endif %}
 {% endfor %}
-
