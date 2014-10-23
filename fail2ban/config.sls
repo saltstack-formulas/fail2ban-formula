@@ -3,7 +3,7 @@
 include:
   - fail2ban
 
-/etc/fail2ban/fail2ban.conf:
+/etc/fail2ban/fail2ban.local:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
@@ -11,7 +11,7 @@ include:
       - service: {{ fail2ban.service }}
     - context:
         config:
-            DEFAULT: {{ fail2ban.config|yaml }}
+            Definition: {{ fail2ban.config|yaml }}
 
 /etc/fail2ban/jail.local:
   file.managed:
