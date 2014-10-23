@@ -3,7 +3,7 @@
 include:
   - fail2ban
 
-/etc/fail2ban/fail2ban.conf:
+/etc/fail2ban/fail2ban.local:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
