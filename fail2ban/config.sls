@@ -11,7 +11,7 @@ include:
       - service: {{ fail2ban.service }}
     - context:
         config:
-            DEFAULT: {{ fail2ban.config|yaml }}
+            Definition: {{ fail2ban.config|yaml }}
 
 /etc/fail2ban/jail.local:
   file.managed:
