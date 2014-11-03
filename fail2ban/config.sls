@@ -30,8 +30,7 @@ include:
     - watch_in:
       - service: {{ fail2ban.service }}
     - context:
-        config:
-            Definition: {{ config|yaml }}
+        config: {{ config|yaml }}
 {% endfor %}
 
 {% for name, config in fail2ban.filters|dictsort %}
@@ -42,7 +41,6 @@ include:
     - watch_in:
       - service: {{ fail2ban.service }}
     - context:
-        config:
-            Definition: {{ config|yaml }}
+        config: {{ config|yaml }}
 {% endfor %}
 

@@ -33,4 +33,5 @@ fail2ban:
                 port: http,https
         filters:
             nginx-noscript:
-                failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
+                Definition:
+                    failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
