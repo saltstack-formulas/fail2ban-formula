@@ -3,7 +3,7 @@
 include:
   - fail2ban
 
-/etc/fail2ban/fail2ban.local:
+{{ fail2ban.prefix }}/etc/fail2ban/fail2ban.local:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
@@ -13,7 +13,7 @@ include:
         config:
             Definition: {{ fail2ban.config|yaml }}
 
-/etc/fail2ban/jail.local:
+{{ fail2ban.prefix }}/etc/fail2ban/jail.local:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
@@ -23,7 +23,7 @@ include:
         config: {{ fail2ban.jails|yaml }}
 
 {% for name, config in fail2ban.actions|dictsort %}
-/etc/fail2ban/action.d/{{ name }}.conf:
+{{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.conf:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
@@ -34,7 +34,7 @@ include:
 {% endfor %}
 
 {% for name, config in fail2ban.filters|dictsort %}
-/etc/fail2ban/filter.d/{{ name }}.conf:
+{{ fail2ban.prefix }}/etc/fail2ban/filter.d/{{ name }}.conf:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
