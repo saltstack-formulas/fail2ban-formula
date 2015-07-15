@@ -35,4 +35,13 @@
         'actions': {},
         'filters': {},
     },
+    'Arch': {
+        'package': 'fail2ban',
+        'service': 'fail2ban',
+        'prefix': '',
+        'config': {},
+        'jails': {},
+        'actions': {},
+        'filters': {},
+    },
 }, merge=salt['pillar.get']('fail2ban:lookup')) %}
