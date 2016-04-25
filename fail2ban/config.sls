@@ -8,27 +8,27 @@ include:
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
-    - watch_in:
-      - service: {{ fail2ban.service }}
     - context:
         config:
             Definition: {{ fail2ban.config|yaml }}
 {% else %}
-  file.absent: []
+  file.absent:
 {% endif %}
+    - watch_in:
+      - service: {{ fail2ban.service }}
 
 {{ fail2ban.prefix }}/etc/fail2ban/jail.local:
 {% if fail2ban.jails %}
   file.managed:
     - source: salt://fail2ban/files/fail2ban_conf.template
     - template: jinja
-    - watch_in:
-      - service: {{ fail2ban.service }}
     - context:
         config: {{ fail2ban.jails|yaml }}
 {% else %}
-  file.absent: []
+  file.absent:
 {% endif %}
+    - watch_in:
+      - service: {{ fail2ban.service }}
 
 {% for name, config in fail2ban.actions|dictsort %}
 {{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.local:
