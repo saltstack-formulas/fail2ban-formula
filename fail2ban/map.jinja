@@ -1,8 +1,5 @@
 {% set fail2ban = salt['grains.filter_by']({
-    'Debian': {
-        'package': 'fail2ban',
-        'service': 'fail2ban',
-        'prefix': '',
+    'common': {
         'config': {},
         'jails': {},
         'actions': {},
@@ -12,36 +9,15 @@
         'package': 'py27-fail2ban',
         'service': 'fail2ban',
         'prefix': '/usr/local',
-        'config': {},
-        'jails': {},
-        'actions': {},
-        'filters': {},
     },
     'Gentoo': {
         'package': 'net-analyzer/fail2ban',
         'service': 'fail2ban',
         'prefix': '',
-        'config': {},
-        'jails': {},
-        'actions': {},
-        'filters': {},
     },
-    'RedHat': {
+    'default': {
         'package': 'fail2ban',
         'service': 'fail2ban',
         'prefix': '',
-        'config': {},
-        'jails': {},
-        'actions': {},
-        'filters': {},
     },
-    'Arch': {
-        'package': 'fail2ban',
-        'service': 'fail2ban',
-        'prefix': '',
-        'config': {},
-        'jails': {},
-        'actions': {},
-        'filters': {},
-    },
-}, merge=salt['pillar.get']('fail2ban:lookup')) %}
+}, merge=salt['pillar.get']('fail2ban:lookup'), base='common') %}
