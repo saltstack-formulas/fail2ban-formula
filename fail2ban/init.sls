@@ -3,9 +3,8 @@
 fail2ban:
   pkg.installed:
     - name: {{ fail2ban.package }}
-  service:
+  service.running:
     - name: {{ fail2ban.service }}
-    - running
     - enable: True
     - require:
       - pkg: fail2ban
