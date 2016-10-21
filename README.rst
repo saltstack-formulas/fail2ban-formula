@@ -22,12 +22,7 @@ Install the ``fail2ban`` package and enable the service.
 ``fail2ban.config``
 -------------------
 
-Creates a ``jail.local`` config file based on pillar data to override configuration in the default ``jail.conf`` file.
-
-``fail2ban.config-pt``
-----------------------
-
-Enables creation of all configuration files based on content blocks in pillar. See ``pillar-pt.example`` for reference
+Creates a ``jail.local`` config file based on pillar data to override configuration in the default ``jail.conf`` file and enables creation of all configuration files based on content blocks in pillar. See ``pillar-pt.example`` for reference
 and consult the fail2ban documentation.
 
 Configuration
@@ -42,7 +37,7 @@ Next, it uses ``/etc/fail2ban/jail.local`` to override settings from ``jail.conf
 Advanced (via config blocks in pillar):
 ---------------------------------------
 
-The ``fail2ban.config-pt`` state populates the ``jail.local``, ``fail2ban.local`` and the ``.conf`` files in ``action.d`` and ``filter.d`` via content blocks in pillar.
+The ``fail2ban.config`` state also populates the ``jail.local``, ``fail2ban.local`` and the ``.conf`` files in ``action.d`` and ``filter.d`` via content blocks in pillar.
 
 
 Gotchas
