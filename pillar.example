@@ -1,7 +1,7 @@
 fail2ban:
   lookup:
     config:
-      loglevel: 2
+      loglevel: ERROR
       ignoreip: 127.0.0.1/8
       bantime: 600
       maxretry: 3
