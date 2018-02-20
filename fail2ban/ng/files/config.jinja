@@ -1,0 +1,26 @@
+#
+# This file is managed by salt. Do not edit by hand.
+#
+{% macro print_config(name, value) %}
+    {%- set name_length = name|length %}
+    {%- if value is string %}
+{{ name }} = {{ value }}
+    {%- elif value is number %}
+{{ name }} = {{ value }}
+    {%- else %}
+    {#- Since strings are also sequences, there's no way to explicitly test for lists #}
+{{ name }} = {{ value|first }}
+        {%- if value|length > 1 %}
+            {%- for item in value[1:] %}
+{{ item|indent(width=name_length + 3, indentfirst=True) }}
+            {%- endfor %}
+        {%- endif %}
+    {%- endif %}
+{%- endmacro %}
+
+{%- for section, section_data in config|dictsort %}
+[{{section}}]
+{%- for name, value in section_data|dictsort %}
+{{- print_config(name, value) }}
+{%- endfor %}
+{% endfor %}
