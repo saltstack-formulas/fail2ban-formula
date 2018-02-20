@@ -32,3 +32,77 @@ fail2ban:
       nginx-noscript:
         Definition:
           failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
+
+  #
+  # New NG states
+  #
+  ng:
+    lookup:
+      prefix: '/opt'
+      package: 'fail2ban-new-package'
+
+    # fail2ban.local
+    config:
+
+      # FTP-style
+      source_path: salt://path-to-fail2ban-file
+
+      # Template-style
+      loglevel: ERROR
+      logtarget: /var/log/fail2ban.log
+
+    # jail.local
+      jails:
+
+        # FTP-style
+        source_path: salt://path-to-jail-file
+
+        # Template-style
+        DEFAULT:
+          ignoreip: 127.0.0.1
+          bantime: 600
+        ssh:
+          actions: iptables[name=SSH, port=ssh, protocol=tcp]
+          enabled: 'true'
+          filter: sshd
+          logpath: /var/log/auth.log
+          maxretry: 6
+          port: ssh
+        ssh_ddos:
+          action: iptables[name=SSH, port=ssh, protocol=tcp]
+          enabled: 'true'
+          filter: sshd-ddos
+          logpath: /var/log/auth.log
+          maxretry: 6
+          port: ssh
+
+    # action.d
+    actions:
+
+      # Template-style
+      csf-ip-deny:
+        enabled: True # OPTIONAL, default True; if False, the action.d/csf-ip-deny.local action will be deleted
+        config:
+          Definition:
+            actionban: csf -d <ip> Added by Fail2Ban for <name>
+            actionunban: csf -dr <ip>
+
+      # FTP-style
+      test-action:
+        config:
+          source_path: salt://path-to-action-file
+
+    # filter.d
+    filters:
+
+      # Template-style
+      nginx-noscript:
+        enabled: True # OPTIONAL, default True; if False, the filter.d/nginx-noscript.local will be deleted
+        config:
+          Definition:
+            failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
+
+      # FTP-style
+      test-filter:
+        config:
+          source_path: salt://path-to-filter-file
