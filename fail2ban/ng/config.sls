@@ -19,9 +19,11 @@ fail2ban.ng.config.fail2ban:
         - group: {{ fail2ban.group|default('root') }}
         - mode: '{{ fail2ban.mode|default("644")}}'
         - template: jinja
+    {% if fail2ban.config.source_path is not defined %}
         - context:
             config:
                 Definition: {{ fail2ban.config|yaml }}
+    {% endif %}
 {% else %}
     file.absent:
         - name: {{ fail2ban.prefix }}/etc/fail2ban/fail2ban.local
@@ -45,8 +47,10 @@ fail2ban.ng.config.jails:
         - group: {{ fail2ban.group|default('root') }}
         - mode: '{{ fail2ban.mode|default("644")}}'
         - template: jinja
+    {% if fail2ban.jails.source_path is not defined %}
         - context:
             config: {{ fail2ban.jails|yaml }}
+    {% endif %}
 {% else %}
     file.absent:
 {% endif %}
@@ -55,8 +59,8 @@ fail2ban.ng.config.jails:
 
 {% for name, options in fail2ban.actions|dictsort %}
 
-{% if fail2ban.actions[name].source_path is defined %}
-{% set fail2ban_actions = fail2ban.actions[name].source_path %}
+{% if options.config.source_path is defined %}
+{% set fail2ban_actions = options.config.source_path %}
 {% else %}
 {% set fail2ban_actions = 'salt://fail2ban/ng/files/config.jinja' %}
 {% endif %}
@@ -72,8 +76,10 @@ fail2ban.ng.config.action.{{ name }}:
         - template: jinja
         - watch_in:
             - service: {{ fail2ban.service }}
+    {% if options.config.source_path is not defined %}
         - context:
             config: {{ options.config|yaml }}
+    {% endif %}
 {% elif 'enabled' in options and not options.enabled %}
     file.absent:
         - name: {{ fail2ban.prefix }}/etc/fail2ban/action.d/{{ name }}.local
@@ -82,8 +88,8 @@ fail2ban.ng.config.action.{{ name }}:
 
 {% for name, options in fail2ban.filters|dictsort %}
 
-{% if fail2ban.filters[name].source_path is defined %}
-{% set fail2ban_filters = fail2ban.filters[name].source_path %}
+{% if options.config.source_path is defined %}
+{% set fail2ban_filters = options.config.source_path %}
 {% else %}
 {% set fail2ban_filters = 'salt://fail2ban/ng/files/config.jinja' %}
 {% endif %}
@@ -99,8 +105,10 @@ fail2ban.ng.config.filter.{{ name }}:
         - template: jinja
         - watch_in:
           - service: {{ fail2ban.service }}
+    {% if options.config.source_path is not defined %}
         - context:
             config: {{ options.config|yaml }}
+    {% endif %}
 {% elif 'enabled' in options and not options.enabled %}
     file.absent:
         - name: {{ fail2ban.prefix }}/etc/fail2ban/filter.d/{{ name }}.local

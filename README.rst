@@ -79,7 +79,7 @@ Keep in mind that in ng states ``lookup``, ``config``, ``jails``, ``actions`` an
       actions:
       filters:
 
-Keep in mind also that in ng states change, the syntax for the actions and filters adding a new `config` section:
+Keep in mind also that in ng states change the syntax for the actions and filters adding a new `config` section and `enabled` option (optional):
 
 .. code-block:: yaml
 
@@ -92,12 +92,33 @@ Keep in mind also that in ng states change, the syntax for the actions and filte
             Definition:
                 actionban:
                 actionunban:
+            Init:
+                whatever:
       filters:
         name-of-filter:
           enabled: True/False # OPTIONAL
           config:
             Definition:
                 failregex:
+
+It is also possible to specify the source file for config, jails, actions and filters instead of using the template:
+
+.. code-block:: yaml
+
+  fail2ban:
+    ng:
+      config:
+        source_path: salt://path-to-fail2ban-config-file
+      jails:
+        source_path: salt://path-to-fail2ban-config-file
+      actions:
+        name-of-action:
+          config:
+            source_path: salt://path-to-action-file
+      filters:
+        name-of-filter:
+          config:
+            source_path: salt://path-to-filter-file
 
 ``fail2ban.ng.service``
 -----------------------

@@ -43,11 +43,21 @@ fail2ban:
 
     # fail2ban.local
     config:
+
+      # FTP-style
+      source_path: salt://path-to-fail2ban-file
+
+      # Template-style
       loglevel: ERROR
       logtarget: /var/log/fail2ban.log
 
     # jail.local
       jails:
+
+        # FTP-style
+        source_path: salt://path-to-jail-file
+
+        # Template-style
         DEFAULT:
           ignoreip: 127.0.0.1
           bantime: 600
@@ -68,6 +78,8 @@ fail2ban:
 
     # action.d
     actions:
+
+      # Template-style
       csf-ip-deny:
         enabled: True # OPTIONAL, default True; if False, the action.d/csf-ip-deny.local action will be deleted
         config:
@@ -75,11 +87,22 @@ fail2ban:
             actionban: csf -d <ip> Added by Fail2Ban for <name>
             actionunban: csf -dr <ip>
 
+      # FTP-style
+      test-action:
+        config:
+          source_path: salt://path-to-action-file
+
     # filter.d
     filters:
+
+      # Template-style
       nginx-noscript:
         enabled: True # OPTIONAL, default True; if False, the filter.d/nginx-noscript.local will be deleted
         config:
           Definition:
             failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
 
+      # FTP-style
+      test-filter:
+        config:
+          source_path: salt://path-to-filter-file
