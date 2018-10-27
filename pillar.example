@@ -52,29 +52,29 @@ fail2ban:
       logtarget: /var/log/fail2ban.log
 
     # jail.local
-      jails:
+    jails:
 
-        # FTP-style
-        source_path: salt://path-to-jail-file
+      # FTP-style
+      source_path: salt://path-to-jail-file
 
-        # Template-style
-        DEFAULT:
-          ignoreip: 127.0.0.1
-          bantime: 600
-        ssh:
-          actions: iptables[name=SSH, port=ssh, protocol=tcp]
-          enabled: 'true'
-          filter: sshd
-          logpath: /var/log/auth.log
-          maxretry: 6
-          port: ssh
-        ssh_ddos:
-          action: iptables[name=SSH, port=ssh, protocol=tcp]
-          enabled: 'true'
-          filter: sshd-ddos
-          logpath: /var/log/auth.log
-          maxretry: 6
-          port: ssh
+      # Template-style
+      DEFAULT:
+        ignoreip: 127.0.0.1
+        bantime: 600
+      ssh:
+        action: iptables[name=SSH, port=ssh, protocol=tcp]
+        enabled: 'true'
+        filter: sshd
+        logpath: /var/log/auth.log
+        maxretry: 6
+        port: ssh
+      ssh_ddos:
+        action: iptables[name=SSH, port=ssh, protocol=tcp]
+        enabled: 'true'
+        filter: sshd-ddos
+        logpath: /var/log/auth.log
+        maxretry: 6
+        port: ssh
 
     # action.d
     actions:
