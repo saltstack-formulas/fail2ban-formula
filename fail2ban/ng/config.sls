@@ -6,11 +6,8 @@
 fail2ban.ng.config.fail2ban:
 {% if fail2ban.config is defined %}
 
-{% if fail2ban.config.source_path is defined %}
-{% set fail2ban_config = fail2ban.config.source_path %}
-{% else %}
-{% set fail2ban_config = 'salt://fail2ban/ng/files/config.jinja' %}
-{% endif %}
+{% set fail2ban_config = fail2ban.config.get('source_path',
+                           'salt://fail2ban/ng/files/config.jinja') %}
 
     file.managed:
         - name: {{ fail2ban.prefix }}/etc/fail2ban/fail2ban.local
@@ -34,11 +31,8 @@ fail2ban.ng.config.fail2ban:
 fail2ban.ng.config.jails:
 {% if fail2ban.jails is defined %}
 
-{% if fail2ban.jails.source_path is defined %}
-{% set fail2ban_jails = fail2ban.jails.source_path %}
-{% else %}
-{% set fail2ban_jails = 'salt://fail2ban/ng/files/config.jinja' %}
-{% endif %}
+{% set fail2ban_jails = fail2ban.jails.get('source_path',
+                          'salt://fail2ban/ng/files/config.jinja') %}
 
     file.managed:
         - name: {{ fail2ban.prefix }}/etc/fail2ban/jail.local
@@ -57,13 +51,10 @@ fail2ban.ng.config.jails:
         - watch_in:
             - service: {{ fail2ban.service }}
 
-{% for name, options in fail2ban.actions|dictsort %}
+{% for name, options in fail2ban.get('actions', {})|dictsort %}
 
-{% if options.config.source_path is defined %}
-{% set fail2ban_actions = options.config.source_path %}
-{% else %}
-{% set fail2ban_actions = 'salt://fail2ban/ng/files/config.jinja' %}
-{% endif %}
+{% set fail2ban_actions = options.config.get('source_path',
+                            'salt://fail2ban/ng/files/config.jinja') %}
 
 fail2ban.ng.config.action.{{ name }}:
 {% if ( 'enabled' in options and options.enabled ) or ('enabled' not in options ) %}
@@ -86,13 +77,10 @@ fail2ban.ng.config.action.{{ name }}:
 {% endif %}
 {% endfor %}
 
-{% for name, options in fail2ban.filters|dictsort %}
+{% for name, options in fail2ban.get('filters', {})|dictsort %}
 
-{% if options.config.source_path is defined %}
-{% set fail2ban_filters = options.config.source_path %}
-{% else %}
-{% set fail2ban_filters = 'salt://fail2ban/ng/files/config.jinja' %}
-{% endif %}
+{% set fail2ban_filters = options.config.get('source_path',
+                            'salt://fail2ban/ng/files/config.jinja') %}
 
 fail2ban.ng.config.filter.{{ name }}:
 {% if ( 'enabled' in options and options.enabled ) or ('enabled' not in options ) %}
