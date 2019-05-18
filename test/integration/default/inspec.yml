@@ -1,0 +1,6 @@
+name: fail2ban
+title: Fail2ban Formula
+maintainer: Saltstack formulas
+license: Apache-2.0
+summary: Verify that the fail2ban formula is setup and configured correctly
+
