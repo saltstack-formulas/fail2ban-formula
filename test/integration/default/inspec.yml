@@ -1,6 +1,14 @@
-name: fail2ban
-title: Fail2ban Formula
-maintainer: Saltstack formulas
+name: default
+title: fail2ban formula
+maintainer: SaltStack Formulas
 license: Apache-2.0
 summary: Verify that the fail2ban formula is setup and configured correctly
-
+supports:
+  - platform-name: debian
+  - platform-name: ubuntu
+  - platform-name: centos
+  - platform-name: fedora
+  - platform-name: opensuse
+  - platform-name: suse
+  - platform-name: freebsd
+  - platform-name: amazon
