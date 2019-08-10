@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 fail2ban:
   lookup:
     config:
@@ -81,7 +84,9 @@ fail2ban:
 
       # Template-style
       csf-ip-deny:
-        enabled: True # OPTIONAL, default True; if False, the action.d/csf-ip-deny.local action will be deleted
+        # OPTIONAL, default true;
+        # if false, the action.d/csf-ip-deny.local action will be deleted
+        enabled: true
         config:
           Definition:
             actionban: csf -d <ip> Added by Fail2Ban for <name>
@@ -97,7 +102,9 @@ fail2ban:
 
       # Template-style
       nginx-noscript:
-        enabled: True # OPTIONAL, default True; if False, the filter.d/nginx-noscript.local will be deleted
+        # OPTIONAL, default true;
+        # if false, the filter.d/nginx-noscript.local will be deleted
+        enabled: true
         config:
           Definition:
             failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
