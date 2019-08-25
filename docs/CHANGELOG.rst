@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.16.1 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.0...v0.16.1>`_ (2019-08-25)
+-------------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** update testing section (\ `3ae625f <https://github.com/saltstack-formulas/fail2ban-formula/commit/3ae625f>`_\ )
+
 `0.16.0 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.15.0...v0.16.0>`_ (2019-08-10)
 -------------------------------------------------------------------------------------------------------------
 
