@@ -10,7 +10,7 @@
 {%- endmacro %}
 
 {%- for section, section_data in config|dictsort %}
-[{{section}}]
+[{{ section }}]
 {%- for name, value in section_data|dictsort %}
 {{- print_config(name, value) }}
 {%- endfor %}

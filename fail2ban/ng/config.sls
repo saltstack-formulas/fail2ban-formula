@@ -14,7 +14,7 @@ fail2ban.ng.config.fail2ban:
         - source: {{ fail2ban_config }}
         - user: {{ fail2ban.user|default('root') }}
         - group: {{ fail2ban.group|default('root') }}
-        - mode: '{{ fail2ban.mode|default("644")}}'
+        - mode: '{{ fail2ban.mode|default("644") }}'
         - template: jinja
     {% if fail2ban.config.source_path is not defined %}
         - context:
@@ -39,7 +39,7 @@ fail2ban.ng.config.jails:
         - source: {{ fail2ban_jails }}
         - user: {{ fail2ban.user|default('root') }}
         - group: {{ fail2ban.group|default('root') }}
-        - mode: '{{ fail2ban.mode|default("644")}}'
+        - mode: '{{ fail2ban.mode|default("644") }}'
         - template: jinja
     {% if fail2ban.jails.source_path is not defined %}
         - context:
@@ -63,7 +63,7 @@ fail2ban.ng.config.action.{{ name }}:
         - source: {{ fail2ban_actions }}
         - user: {{ fail2ban.user|default('root') }}
         - group: {{ fail2ban.group|default('root') }}
-        - mode: '{{ fail2ban.mode|default("644")}}'
+        - mode: '{{ fail2ban.mode|default("644") }}'
         - template: jinja
         - watch_in:
             - service: {{ fail2ban.service }}
@@ -89,7 +89,7 @@ fail2ban.ng.config.filter.{{ name }}:
         - source: {{ fail2ban_filters }}
         - user: {{ fail2ban.user|default('root') }}
         - group: {{ fail2ban.group|default('root') }}
-        - mode: '{{ fail2ban.mode|default("644")}}'
+        - mode: '{{ fail2ban.mode|default("644") }}'
         - template: jinja
         - watch_in:
           - service: {{ fail2ban.service }}
