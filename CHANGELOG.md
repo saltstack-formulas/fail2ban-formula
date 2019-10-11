@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.16.3](https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.2...v0.16.3) (2019-10-11)
+
+
+### Bug Fixes
+
+* **rubocop:** add fixes using `rubocop --safe-auto-correct` ([](https://github.com/saltstack-formulas/fail2ban-formula/commit/0a420da))
+
+
+### Continuous Integration
+
+* merge travis matrix, add `salt-lint` & `rubocop` to `lint` job ([](https://github.com/saltstack-formulas/fail2ban-formula/commit/269a220))
+* **travis:** merge `rubocop` linter into main `lint` job ([](https://github.com/saltstack-formulas/fail2ban-formula/commit/19f6faa))
+
 ## [0.16.2](https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.1...v0.16.2) (2019-10-09)
 
 
