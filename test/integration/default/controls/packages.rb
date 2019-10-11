@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 control 'Fail2ban package' do
   title 'should be installed'
@@ -6,4 +7,3 @@ control 'Fail2ban package' do
     it { should be_installed }
   end
 end
-
