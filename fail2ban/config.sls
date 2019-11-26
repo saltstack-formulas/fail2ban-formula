@@ -1,6 +1,7 @@
 {% from "fail2ban/map.jinja" import fail2ban with context %}
 
 include:
+  - fail2ban.deprecated
   - fail2ban
 
 {{ fail2ban.prefix }}/etc/fail2ban/fail2ban.local:
