@@ -16,6 +16,30 @@ fail2ban-formula
 
 ``fail2ban`` scans log files for malicious activity and executes actions based on what it finds.
 
+.. list-table::
+   :name: banner-breaking-changes-v1.0.0
+   :header-rows: 1
+   :widths: 1
+
+   * - WARNING: BREAKING CHANGES IN UPCOMING ``v1.0.0``
+   * - This formula currently provides two methods for managing Fail2Ban; the old method
+       under ``fail2ban`` and the new method under ``fail2ban.ng``.
+       In upcoming `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_,
+       the old method will be removed and ``fail2ban.ng`` will be promoted to ``fail2ban`` in its place.
+
+       If you are not in a position to migrate, you will need to pin your repo to
+       the final release tag before
+       `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_,
+       which is expected to be
+       `v0.16.3 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.16.3>`_.
+
+       If you are currently using ``fail2ban.ng``, there is nothing to do until
+       `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_
+       is released.
+
+       To migrate from the old ``fail2ban``, the first step is to convert to ``fail2ban.ng``,
+       before `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_
+       is released.
 
 .. contents:: **Table of Contents**
 
