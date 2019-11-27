@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
+include:
+  - fail2ban.deprecated
+
 {% from "fail2ban/ng/map.jinja" import fail2ban with context %}
 
 fail2ban.ng.config.fail2ban:

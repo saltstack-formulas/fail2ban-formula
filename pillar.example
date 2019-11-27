@@ -2,6 +2,9 @@
 # vim: ft=yaml
 ---
 fail2ban:
+  warning_messages:
+    v1.0.0:
+      mute_critical: false
   lookup:
     config:
       loglevel: ERROR
