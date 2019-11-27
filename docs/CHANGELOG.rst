@@ -2,6 +2,49 @@
 Changelog
 =========
 
+`0.17.0 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.3...v0.17.0>`_ (2019-11-27)
+-------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **release.config.js:** use full commit hash in commit link [skip ci] (\ `37439c8 <https://github.com/saltstack-formulas/fail2ban-formula/commit/37439c81a79428a3ea66fcba0ea9f389daf78caa>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use ``debian-10-master-py3`` instead of ``develop`` [skip ci] (\ `14629b9 <https://github.com/saltstack-formulas/fail2ban-formula/commit/14629b96f38e79143899944f0ec2508171d196c8>`_\ )
+* **kitchen:** use ``develop`` image until ``master`` is ready (\ ``amazonlinux``\ ) [skip ci] (\ `6652ff9 <https://github.com/saltstack-formulas/fail2ban-formula/commit/6652ff9d9563bc5454e48b16ccdea579100ff3f3>`_\ )
+* **kitchen+travis:** upgrade matrix after ``2019.2.2`` release [skip ci] (\ `9968b09 <https://github.com/saltstack-formulas/fail2ban-formula/commit/9968b09784e4b2d3e9e5055b9f7dce6306d5eb80>`_\ )
+* **travis:** apply changes from build config validation [skip ci] (\ `885c517 <https://github.com/saltstack-formulas/fail2ban-formula/commit/885c517e8a17b54d2966e475919f10378f7b99e9>`_\ )
+* **travis:** opt-in to ``dpl v2`` to complete build config validation [skip ci] (\ `5112d76 <https://github.com/saltstack-formulas/fail2ban-formula/commit/5112d760e403fe8e9e56324445fab75a669e81c7>`_\ )
+* **travis:** run ``shellcheck`` during lint job (\ `527cf1e <https://github.com/saltstack-formulas/fail2ban-formula/commit/527cf1e9717964d794356b1dbbad0037356773fe>`_\ )
+* **travis:** update ``salt-lint`` config for ``v0.0.10`` [skip ci] (\ `52eb62c <https://github.com/saltstack-formulas/fail2ban-formula/commit/52eb62c8f9e8703889f8c9d97f68df794e4a644c>`_\ )
+* **travis:** use build config validation (beta) [skip ci] (\ `2ae5e8c <https://github.com/saltstack-formulas/fail2ban-formula/commit/2ae5e8cc167d9596bb07d094cf7dae2e7655a77f>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **contributing:** remove to use org-level file instead [skip ci] (\ `2688f64 <https://github.com/saltstack-formulas/fail2ban-formula/commit/2688f64efb58ef9091fdc56328ec6ad303727fcc>`_\ )
+* **readme:** update link to ``CONTRIBUTING`` [skip ci] (\ `37c0dd1 <https://github.com/saltstack-formulas/fail2ban-formula/commit/37c0dd1fcdfd8bfb424490a7b680d0fc04150261>`_\ )
+
+Features
+^^^^^^^^
+
+
+* update deprecation version number in ``semantic-release`` run (\ `11d748a <https://github.com/saltstack-formulas/fail2ban-formula/commit/11d748abd67f1603b99a7804436d7ad6970d3411>`_\ )
+* **deprecated.sls:** prepare warning state for ``ng`` promotion (\ `#35 <https://github.com/saltstack-formulas/fail2ban-formula/issues/35>`_\ ) (\ `4c702bc <https://github.com/saltstack-formulas/fail2ban-formula/commit/4c702bc5a57b55abe8bdcc5096d5aa9a04233bb5>`_\ )
+* **deprecation:** include ``ng`` promotion warning to all state files (\ `4348b59 <https://github.com/saltstack-formulas/fail2ban-formula/commit/4348b5966240878ec3959dfaa661e696384ca833>`_\ )
+
+Performance Improvements
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **travis:** improve ``salt-lint`` invocation [skip ci] (\ `5a14047 <https://github.com/saltstack-formulas/fail2ban-formula/commit/5a14047dae331c973e3a0f7384c5f1e135604e8f>`_\ )
+
 `0.16.3 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.2...v0.16.3>`_ (2019-10-11)
 -------------------------------------------------------------------------------------------------------------
 

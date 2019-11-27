@@ -31,7 +31,7 @@ fail2ban-formula
        the final release tag before
        `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_,
        which is expected to be
-       `v0.16.3 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.16.3>`_.
+       `v0.17.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.17.0>`_.
 
        If you are currently using ``fail2ban.ng``, there is nothing to do until
        `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_
