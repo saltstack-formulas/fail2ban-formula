@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`0.17.2 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.1...v0.17.2>`_ (2020-01-10)
+-------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **ng/map.jinja:** use ``ng:lookup`` rather than ``lookup`` (\ `cb76484 <https://github.com/saltstack-formulas/fail2ban-formula/commit/cb76484142d192dc3c0f2903231b97793e5b216e>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use ``fail2ban.ng`` in ``state_top`` (\ `#35 <https://github.com/saltstack-formulas/fail2ban-formula/issues/35>`_\ ) (\ `10b403f <https://github.com/saltstack-formulas/fail2ban-formula/commit/10b403f8b445f65118e88872229a978cdae90a4c>`_\ )
+
 `0.17.1 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.0...v0.17.1>`_ (2020-01-10)
 -------------------------------------------------------------------------------------------------------------
 

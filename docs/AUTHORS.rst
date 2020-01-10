@@ -55,6 +55,9 @@ This list is sorted by the number of commits per contributor in *descending* ord
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars0.githubusercontent.com/u/1796467?v=4' width='36' height='36' alt='@dustinrc'>`
      - `@dustinrc <https://github.com/dustinrc>`_
      - 1
+   * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars0.githubusercontent.com/u/23722820?v=4' width='36' height='36' alt='@Irsute'>`
+     - `@Irsute <https://github.com/Irsute>`_
+     - 1
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars2.githubusercontent.com/u/242396?v=4' width='36' height='36' alt='@javierbertoli'>`
      - `@javierbertoli <https://github.com/javierbertoli>`_
      - 1

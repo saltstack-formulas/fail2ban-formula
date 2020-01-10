@@ -18,6 +18,7 @@ Avatar|Contributor|Contributions
 <img class='float-left rounded-1' src='https://avatars1.githubusercontent.com/u/528061?v=4' width='36' height='36' alt='@puneetk'>|[@puneetk](https://github.com/puneetk)|2
 <img class='float-left rounded-1' src='https://avatars2.githubusercontent.com/u/1912062?v=4' width='36' height='36' alt='@devster31'>|[@devster31](https://github.com/devster31)|1
 <img class='float-left rounded-1' src='https://avatars0.githubusercontent.com/u/1796467?v=4' width='36' height='36' alt='@dustinrc'>|[@dustinrc](https://github.com/dustinrc)|1
+<img class='float-left rounded-1' src='https://avatars0.githubusercontent.com/u/23722820?v=4' width='36' height='36' alt='@Irsute'>|[@Irsute](https://github.com/Irsute)|1
 <img class='float-left rounded-1' src='https://avatars2.githubusercontent.com/u/242396?v=4' width='36' height='36' alt='@javierbertoli'>|[@javierbertoli](https://github.com/javierbertoli)|1
 <img class='float-left rounded-1' src='https://avatars1.githubusercontent.com/u/287147?v=4' width='36' height='36' alt='@techhat'>|[@techhat](https://github.com/techhat)|1
 <img class='float-left rounded-1' src='https://avatars2.githubusercontent.com/u/6514506?v=4' width='36' height='36' alt='@MBoretto'>|[@MBoretto](https://github.com/MBoretto)|1
