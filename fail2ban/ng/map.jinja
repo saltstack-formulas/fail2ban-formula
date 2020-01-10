@@ -20,7 +20,7 @@
         'group': 'root',
         'mode': '644',
     },
-}, merge=salt['pillar.get']('fail2ban:lookup')) %}
+}, merge=salt['pillar.get']('fail2ban:ng:lookup')) %}
 
 {% set fail2ban = salt['pillar.get'](
         'fail2ban:ng',
