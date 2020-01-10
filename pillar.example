@@ -12,8 +12,6 @@ fail2ban:
       maxretry: 3
       backend: auto
     jails:
-    # set a global whitelist ip
-      ignoreip: 127.0.0.1/8
       ssh:
         actions: iptables[name=SSH, port=ssh, protocol=tcp]
         enabled: 'true'
@@ -78,6 +76,7 @@ fail2ban:
         logpath: /var/log/auth.log
         maxretry: 6
         port: ssh
+        ignoreip: 127.0.0.1/8
       ssh_ddos:
         action: iptables[name=SSH, port=ssh, protocol=tcp]
         enabled: 'true'
@@ -85,6 +84,7 @@ fail2ban:
         logpath: /var/log/auth.log
         maxretry: 6
         port: ssh
+        ignoreip: 127.0.0.1/8
 
     # action.d
     actions:
