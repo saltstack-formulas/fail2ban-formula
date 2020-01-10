@@ -2,6 +2,23 @@
 Changelog
 =========
 
+`0.17.1 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.0...v0.17.1>`_ (2020-01-10)
+-------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **pillar.example:** declare ignoreip (whitelist) in jail section (ng) (\ `00661cb <https://github.com/saltstack-formulas/fail2ban-formula/commit/00661cbca978e5b6344427bd688fcfae9789f3db>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gemfile:** restrict ``train`` gem version until upstream fix [skip ci] (\ `4a10cd6 <https://github.com/saltstack-formulas/fail2ban-formula/commit/4a10cd695764fb551aea91688625576dbb046ba9>`_\ )
+* **travis:** quote pathspecs used with ``git ls-files`` [skip ci] (\ `b4affad <https://github.com/saltstack-formulas/fail2ban-formula/commit/b4affadfd7f1227aea0dc96101e560553af12c8a>`_\ )
+* **travis:** use ``major.minor`` for ``semantic-release`` version [skip ci] (\ `d41fe3f <https://github.com/saltstack-formulas/fail2ban-formula/commit/d41fe3f2051e2f63dbae9cfd343103f5b3228dc0>`_\ )
+
 `0.17.0 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.16.3...v0.17.0>`_ (2019-11-27)
 -------------------------------------------------------------------------------------------------------------
 
