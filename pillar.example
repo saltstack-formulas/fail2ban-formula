@@ -18,7 +18,7 @@ fail2ban:
         filter: sshd
         logpath: /var/log/auth.log
         maxretry: 6
-        port: ssh	
+        port: ssh
         ignoreip: 127.0.0.1/8
       ssh_ddos:
         action: iptables[name=SSH, port=ssh, protocol=tcp]
@@ -46,14 +46,16 @@ fail2ban:
   #
   ng:
     lookup:
-      prefix: '/opt'
-      package: 'fail2ban-new-package'
+      loglevel: ERROR
+      bantime: 600
+      maxretry: 3
+      backend: auto
 
     # fail2ban.local
     config:
 
-      # FTP-style
-      source_path: salt://path-to-fail2ban-file
+      # # FTP-style
+      # source_path: salt://path-to-fail2ban-file
 
       # Template-style
       loglevel: ERROR
@@ -62,8 +64,8 @@ fail2ban:
     # jail.local
     jails:
 
-      # FTP-style
-      source_path: salt://path-to-jail-file
+      # # FTP-style
+      # source_path: salt://path-to-jail-file
 
       # Template-style
       DEFAULT:
@@ -99,10 +101,12 @@ fail2ban:
             actionban: csf -d <ip> Added by Fail2Ban for <name>
             actionunban: csf -dr <ip>
 
-      # FTP-style
-      test-action:
-        config:
-          source_path: salt://path-to-action-file
+      # yamllint disable rule:comments-indentation
+      # # FTP-style
+      # test-action:
+      #   config:
+      #     source_path: salt://path-to-action-file
+      # yamllint enable rule:comments-indentation
 
     # filter.d
     filters:
@@ -116,7 +120,9 @@ fail2ban:
           Definition:
             failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
 
-      # FTP-style
-      test-filter:
-        config:
-          source_path: salt://path-to-filter-file
+      # yamllint disable rule:comments-indentation
+      # # FTP-style
+      # test-filter:
+      #   config:
+      #     source_path: salt://path-to-filter-file
+      # yamllint enable rule:comments-indentation
