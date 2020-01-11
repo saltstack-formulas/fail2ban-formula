@@ -21,25 +21,28 @@ fail2ban-formula
    :header-rows: 1
    :widths: 1
 
-   * - WARNING: BREAKING CHANGES IN UPCOMING ``v1.0.0``
-   * - This formula currently provides two methods for managing Fail2Ban; the old method
-       under ``fail2ban`` and the new method under ``fail2ban.ng``.
-       In upcoming `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_,
-       the old method will be removed and ``fail2ban.ng`` will be promoted to ``fail2ban`` in its place.
-
-       If you are not in a position to migrate, you will need to pin your repo to
-       the final release tag before
+   * - WARNING: BREAKING CHANGES SINCE ``v1.0.0``
+   * - Prior to
        `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_,
-       which is expected to be
+       this formula provided two methods for managing Fail2Ban;
+       the old method under ``fail2ban`` and the new method under ``fail2ban.ng``.
+       The old method has now been removed and ``fail2ban.ng`` has been promoted to
+       be ``fail2ban`` in its place.
+
+       If you are not in a position to migrate, please pin your repo to the final
+       release tag before
+       `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_,
+       i.e.
        `v0.17.2 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.17.2>`_.
 
-       If you are currently using ``fail2ban.ng``, there is nothing to do until
-       `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_
-       is released.
+       To migrate from ``fail2ban.ng``, simply modify your pillar to promote the
+       entire section under ``fail2ban:ng`` so that it is under ``fail2ban`` instead.
+       So with the editor of your choice, highlight the entire section and then
+       unindent one level.  Finish by removing the ``ng:`` line.
 
-       To migrate from the old ``fail2ban``, the first step is to convert to ``fail2ban.ng``,
-       before `v1.0.0 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v1.0.0>`_
-       is released.
+       To migrate from the old ``fail2ban``, first convert to ``fail2ban.ng`` under
+       `v0.17.2 <https://github.com/saltstack-formulas/fail2ban-formula/releases/tag/v0.17.2>`_.
+       and then follow the steps laid out in the paragraph directly above.
 
 .. contents:: **Table of Contents**
 
@@ -70,72 +73,20 @@ Available states
 .. contents::
    :local:
 
-
 ``fail2ban``
 ^^^^^^^^^^^^
 
-Install the ``fail2ban`` package and enable the service.
+Meta state for inclusion of all states.
+
+``fail2ban.install``
+^^^^^^^^^^^^^^^^^^^^
+
+Install the ``fail2ban`` package.
 
 ``fail2ban.config``
 ^^^^^^^^^^^^^^^^^^^
 
-Creates a ``jail.local`` config file based on pillar data to override configuration in the default ``jail.conf`` file and enables creation of all configuration files based on content blocks in pillar. See ``pillar.example`` for reference
-and consult the fail2ban documentation.
-
-
-The following states provide an alternate approach to managing fail2ban. Tested in Ubuntu 14/16 and CentOS 6/7.
-
-.. contents::
-    :local:
-
-``fail2ban.ng``
-^^^^^^^^^^^^^^^
-
-Meta state for inclusion of all ng states.
-
-``fail2ban.ng.install``
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Install the ``fail2ban`` package.
-
-``fail2ban.ng.config``
-^^^^^^^^^^^^^^^^^^^^^^
-
 Configure fail2ban creating a ``jail.local`` file based on pillar data that overrid ``jail.conf``. It also creates a ``file.local`` per action/filter. Either in jails, actions or filters is possible to setup a ``source_path`` options to upload your configuration directly (see ``pillar.example``). It is also possible to remove either actions or filters setting up ``enabled: False`` in it section (see ``pillar.example``).
-
-Keep in mind that in ng states ``lookup``, ``config``, ``jails``, ``actions`` and ``filters`` are at the same level (in the old states, all the sections are under ``lookup``:
-
-.. code-block:: yaml
-
-  fail2ban:
-    ng:
-      lookup:
-      config:
-      jails:
-      actions:
-      filters:
-
-Keep in mind also that in ng states change the syntax for the actions and filters adding a new `config` section and `enabled` option (optional):
-
-.. code-block:: yaml
-
-  fail2ban:
-    ng:
-      actions:
-        name-of-action:
-          enabled: True/False # OPTIONAL
-          config:
-            Definition:
-                actionban:
-                actionunban:
-            Init:
-                whatever:
-      filters:
-        name-of-filter:
-          enabled: True/False # OPTIONAL
-          config:
-            Definition:
-                failregex:
 
 It is also possible to specify the source file for config, jails, actions and filters instead of using the template:
 
@@ -156,16 +107,15 @@ It is also possible to specify the source file for config, jails, actions and fi
           config:
             source_path: salt://path-to-filter-file
 
-``fail2ban.ng.service``
-^^^^^^^^^^^^^^^^^^^^^^^
+``fail2ban.service``
+^^^^^^^^^^^^^^^^^^^^
 
 Manage fail2ban service. It is also possible to disable the service using the following pillar configuration:
 
 .. code-block:: yaml
 
   fail2ban:
-    ng:
-      enabled: False
+    enabled: false
 
 
 Testing

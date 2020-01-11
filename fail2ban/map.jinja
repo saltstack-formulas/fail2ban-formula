@@ -1,10 +1,7 @@
-{% set fail2ban = salt['grains.filter_by']({
-    'common': {
-        'config': {},
-        'jails': {},
-        'actions': {},
-        'filters': {},
-    },
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{% set os_family_map = salt['grains.filter_by']({
     'FreeBSD': {
         'package': 'py27-fail2ban',
         'service': 'fail2ban',
@@ -19,5 +16,15 @@
         'package': 'fail2ban',
         'service': 'fail2ban',
         'prefix': '',
+        'user': 'root',
+        'group': 'root',
+        'mode': '644',
     },
-}, merge=salt['pillar.get']('fail2ban:lookup'), base='common') %}
+}, merge=salt['pillar.get']('fail2ban:lookup')) %}
+
+{% set fail2ban = salt['pillar.get'](
+        'fail2ban',
+        default=os_family_map,
+        merge=True
+    )
+%}
