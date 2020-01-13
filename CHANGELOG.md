@@ -1,5 +1,19 @@
 # Changelog
 
+# [1.0.0](https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.2...v1.0.0) (2020-01-13)
+
+
+### Features
+
+* promote `ng` ([fb1ae56](https://github.com/saltstack-formulas/fail2ban-formula/commit/fb1ae56f460f2cabdf0f7b9b0bccdde309d698ca)), closes [#34](https://github.com/saltstack-formulas/fail2ban-formula/issues/34) [#35](https://github.com/saltstack-formulas/fail2ban-formula/issues/35)
+
+
+### BREAKING CHANGES
+
+* all previous `fail2ban` based configurations must be
+reviewed; `fail2ban.ng` usage must be promoted to `fail2ban` and any
+uses of the original `fail2ban` will have to be converted.
+
 ## [0.17.2](https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.1...v0.17.2) (2020-01-10)
 
 
