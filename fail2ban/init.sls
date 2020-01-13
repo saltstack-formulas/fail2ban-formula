@@ -1,14 +1,7 @@
-{% from "fail2ban/map.jinja" import fail2ban with context %}
+# -*- coding: utf-8 -*-
+# vim: ft=sls
 
 include:
-  - fail2ban.deprecated
-
-fail2ban:
-  pkg.installed:
-    - name: {{ fail2ban.package }}
-  service.running:
-    - name: {{ fail2ban.service }}
-    - enable: True
-    - require:
-      - pkg: fail2ban
-
+    - fail2ban.install
+    - fail2ban.config
+    - fail2ban.service

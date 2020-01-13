@@ -182,7 +182,7 @@ suites:
         base:
           '*':
             - misc.fake_log_files
-            - fail2ban.ng
+            - fail2ban
       pillars:
         top.sls:
           base:

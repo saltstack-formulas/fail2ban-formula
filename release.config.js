@@ -14,7 +14,7 @@ module.exports = {
         prepareCmd: 'sh ./pre-commit_semantic-release.sh ${nextRelease.version}',
       }],
       ['@semantic-release/git', {
-        assets: ['*.md', 'docs/*.rst', 'FORMULA', 'fail2ban/deprecated.sls'],
+        assets: ['*.md', 'docs/*.rst', 'FORMULA'],
       }],
       '@semantic-release/github',
   ],

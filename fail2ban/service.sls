@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{% from "fail2ban/ng/map.jinja" import fail2ban with context %}
+{% from "fail2ban/map.jinja" import fail2ban with context %}
 
-include:
-  - fail2ban.deprecated
-
-fail2ban.ng.service:
+fail2ban.service:
 {% if ( 'enabled' in fail2ban and fail2ban.enabled ) or ('enabled' not in fail2ban ) %}
     service.running:
         - name: {{ fail2ban.service }}

@@ -2,127 +2,84 @@
 # vim: ft=yaml
 ---
 fail2ban:
-  warning_messages:
-    v1.0.0:
-      mute_critical: false
   lookup:
-    config:
-      loglevel: ERROR
+    loglevel: ERROR
+    bantime: 600
+    maxretry: 3
+    backend: auto
+
+  # fail2ban.local
+  config:
+
+    # # FTP-style
+    # source_path: salt://path-to-fail2ban-file
+
+    # Template-style
+    loglevel: ERROR
+    logtarget: /var/log/fail2ban.log
+
+  # jail.local
+  jails:
+
+    # # FTP-style
+    # source_path: salt://path-to-jail-file
+
+    # Template-style
+    DEFAULT:
+      ignoreip: 127.0.0.1
       bantime: 600
-      maxretry: 3
-      backend: auto
-    jails:
-      ssh:
-        actions: iptables[name=SSH, port=ssh, protocol=tcp]
-        enabled: 'true'
-        filter: sshd
-        logpath: /var/log/auth.log
-        maxretry: 6
-        port: ssh
-        ignoreip: 127.0.0.1/8
-      ssh_ddos:
-        action: iptables[name=SSH, port=ssh, protocol=tcp]
-        enabled: 'true'
-        filter: sshd-ddos
-        logpath: /var/log/auth.log
-        maxretry: 6
-        port: ssh
-        ignoreip: 127.0.0.1/8
-      nginx-noscript:
-        action: iptables-multiport[name=NoScript, port="http,https"]
-        enabled: 'true'
-        filter: nginx-noscript
-        logpath: /var/log/nginx*/*access*.log
-        maxretry: 6
-        port: http,https
-        ignoreip: 127.0.0.1/8
-    filters:
-      nginx-noscript:
+    ssh:
+      action: iptables[name=SSH, port=ssh, protocol=tcp]
+      enabled: 'true'
+      filter: sshd
+      logpath: /var/log/auth.log
+      maxretry: 6
+      port: ssh
+      ignoreip: 127.0.0.1/8
+    ssh_ddos:
+      action: iptables[name=SSH, port=ssh, protocol=tcp]
+      enabled: 'true'
+      filter: sshd-ddos
+      logpath: /var/log/auth.log
+      maxretry: 6
+      port: ssh
+      ignoreip: 127.0.0.1/8
+
+  # action.d
+  actions:
+
+    # Template-style
+    csf-ip-deny:
+      # OPTIONAL, default true;
+      # if false, the action.d/csf-ip-deny.local action will be deleted
+      enabled: true
+      config:
+        Definition:
+          actionban: csf -d <ip> Added by Fail2Ban for <name>
+          actionunban: csf -dr <ip>
+
+    # yamllint disable rule:comments-indentation
+    # # FTP-style
+    # test-action:
+    #   config:
+    #     source_path: salt://path-to-action-file
+    # yamllint enable rule:comments-indentation
+
+  # filter.d
+  filters:
+
+    # Template-style
+    nginx-noscript:
+      # OPTIONAL, default true;
+      # if false, the filter.d/nginx-noscript.local will be deleted
+      enabled: true
+      config:
         Definition:
           failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
 
-  #
-  # New NG states
-  #
-  ng:
-    lookup:
-      loglevel: ERROR
-      bantime: 600
-      maxretry: 3
-      backend: auto
-
-    # fail2ban.local
-    config:
-
-      # # FTP-style
-      # source_path: salt://path-to-fail2ban-file
-
-      # Template-style
-      loglevel: ERROR
-      logtarget: /var/log/fail2ban.log
-
-    # jail.local
-    jails:
-
-      # # FTP-style
-      # source_path: salt://path-to-jail-file
-
-      # Template-style
-      DEFAULT:
-        ignoreip: 127.0.0.1
-        bantime: 600
-      ssh:
-        action: iptables[name=SSH, port=ssh, protocol=tcp]
-        enabled: 'true'
-        filter: sshd
-        logpath: /var/log/auth.log
-        maxretry: 6
-        port: ssh
-        ignoreip: 127.0.0.1/8
-      ssh_ddos:
-        action: iptables[name=SSH, port=ssh, protocol=tcp]
-        enabled: 'true'
-        filter: sshd-ddos
-        logpath: /var/log/auth.log
-        maxretry: 6
-        port: ssh
-        ignoreip: 127.0.0.1/8
-
-    # action.d
-    actions:
-
-      # Template-style
-      csf-ip-deny:
-        # OPTIONAL, default true;
-        # if false, the action.d/csf-ip-deny.local action will be deleted
-        enabled: true
-        config:
-          Definition:
-            actionban: csf -d <ip> Added by Fail2Ban for <name>
-            actionunban: csf -dr <ip>
-
-      # yamllint disable rule:comments-indentation
-      # # FTP-style
-      # test-action:
-      #   config:
-      #     source_path: salt://path-to-action-file
-      # yamllint enable rule:comments-indentation
-
-    # filter.d
-    filters:
-
-      # Template-style
-      nginx-noscript:
-        # OPTIONAL, default true;
-        # if false, the filter.d/nginx-noscript.local will be deleted
-        enabled: true
-        config:
-          Definition:
-            failregex: <HOST>.*(GET|POST).*(\.php|\.asp|\.exe|\.pl|\.cgi|\.scgi).*
-
-      # yamllint disable rule:comments-indentation
-      # # FTP-style
-      # test-filter:
-      #   config:
-      #     source_path: salt://path-to-filter-file
-      # yamllint enable rule:comments-indentation
+    # yamllint disable rule:comments-indentation
+    # # FTP-style
+    # test-filter:
+    #   config:
+    #     source_path: salt://path-to-filter-file
+    # yamllint enable rule:comments-indentation
