@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.1](https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.0.0...v1.0.1) (2020-05-04)
+
+
+### Bug Fixes
+
+* **config:** add jails config filename also to fallback file.absent ([167a0d6](https://github.com/saltstack-formulas/fail2ban-formula/commit/167a0d60664328a925cf80862e2c402a63f2997f))
+
+
+### Continuous Integration
+
+* **gemfile.lock:** add to repo with updated `Gemfile` [skip ci] ([1604f1e](https://github.com/saltstack-formulas/fail2ban-formula/commit/1604f1ea52c28cc5e61630587d1648b124bda859))
+* **kitchen:** avoid using bootstrap for `master` instances [skip ci] ([9ae8e09](https://github.com/saltstack-formulas/fail2ban-formula/commit/9ae8e0946efa6be827e1013935b74c32b4066c26))
+* **kitchen+travis:** remove `master-py2-arch-base-latest` [skip ci] ([4c957f0](https://github.com/saltstack-formulas/fail2ban-formula/commit/4c957f0ec1e3ab14d01ed2c1f7d068a46edb3162))
+* **workflows/commitlint:** add to repo [skip ci] ([6f3a950](https://github.com/saltstack-formulas/fail2ban-formula/commit/6f3a950e9b5b742719ff01e12a45a5d2fe72cf57))
+
 # [1.0.0](https://github.com/saltstack-formulas/fail2ban-formula/compare/v0.17.2...v1.0.0) (2020-01-13)
 
 
