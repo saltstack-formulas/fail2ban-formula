@@ -47,6 +47,7 @@ fail2ban.config.jails:
     {% endif %}
 {% else %}
     file.absent:
+        - name: {{ fail2ban.prefix }}/etc/fail2ban/jail.local
 {% endif %}
         - watch_in:
             - service: {{ fail2ban.service }}
