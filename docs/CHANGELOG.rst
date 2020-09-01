@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`1.1.0 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.0.1...v1.1.0>`_ (2020-09-01)
+----------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** use ``saltimages`` Docker Hub where available [skip ci] (\ `671d596 <https://github.com/saltstack-formulas/fail2ban-formula/commit/671d596e4e76148b631fa5e641fbd5a2b29f7113>`_\ )
+* **travis:** add notifications => zulip [skip ci] (\ `f71aea9 <https://github.com/saltstack-formulas/fail2ban-formula/commit/f71aea9c1989e33cde834cde14869856cbc0a81b>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **freebsd:** upgrade to supported python 3 version (\ `06ff9fb <https://github.com/saltstack-formulas/fail2ban-formula/commit/06ff9fb9902b13f55a9042d59565337b135bcc41>`_\ )
+
 `1.0.1 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.0.0...v1.0.1>`_ (2020-05-04)
 ----------------------------------------------------------------------------------------------------------
 
