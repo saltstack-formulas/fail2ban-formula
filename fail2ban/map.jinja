@@ -3,7 +3,7 @@
 
 {% set os_family_map = salt['grains.filter_by']({
     'FreeBSD': {
-        'package': 'py27-fail2ban',
+        'package': 'py37-fail2ban',
         'service': 'fail2ban',
         'prefix': '/usr/local',
     },
