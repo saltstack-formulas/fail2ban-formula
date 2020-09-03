@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.1.0...v1.1.1) (2020-09-03)
+
+
+### Bug Fixes
+
+* **mapping:** use default wheel group in freebsd ([630b13f](https://github.com/saltstack-formulas/fail2ban-formula/commit/630b13f6b3e8a69a0bf4240460ce24855a055a77))
+
 # [1.1.0](https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.0.1...v1.1.0) (2020-09-01)
 
 
