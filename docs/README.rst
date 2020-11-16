@@ -93,19 +93,18 @@ It is also possible to specify the source file for config, jails, actions and fi
 .. code-block:: yaml
 
   fail2ban:
-    ng:
-      config:
-        source_path: salt://path-to-fail2ban-config-file
-      jails:
-        source_path: salt://path-to-fail2ban-config-file
-      actions:
-        name-of-action:
-          config:
-            source_path: salt://path-to-action-file
-      filters:
-        name-of-filter:
-          config:
-            source_path: salt://path-to-filter-file
+   config:
+     source_path: salt://path-to-fail2ban-config-file
+   jails:
+     source_path: salt://path-to-fail2ban-config-file
+   actions:
+     name-of-action:
+       config:
+         source_path: salt://path-to-action-file
+   filters:
+     name-of-filter:
+       config:
+         source_path: salt://path-to-filter-file
 
 ``fail2ban.service``
 ^^^^^^^^^^^^^^^^^^^^
