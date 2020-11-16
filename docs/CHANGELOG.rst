@@ -2,6 +2,23 @@
 Changelog
 =========
 
+`1.1.2 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.1.1...v1.1.2>`_ (2020-11-16)
+----------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **pre-commit:** add to formula [skip ci] (\ `feb333d <https://github.com/saltstack-formulas/fail2ban-formula/commit/feb333d59ca02223b1db94960c85400205a8d1aa>`_\ )
+* **pre-commit:** enable/disable ``rstcheck`` as relevant [skip ci] (\ `57e6659 <https://github.com/saltstack-formulas/fail2ban-formula/commit/57e665964c30b047c4735fa4b120b45a9daf03fb>`_\ )
+* **pre-commit:** finalise ``rstcheck`` configuration [skip ci] (\ `24ab8f7 <https://github.com/saltstack-formulas/fail2ban-formula/commit/24ab8f7ce755dc981cc6fe3ce4654accc41b2145>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** fix ng example (\ `f5d23a5 <https://github.com/saltstack-formulas/fail2ban-formula/commit/f5d23a5d895693b174af6bc76ce32828f7fadd2d>`_\ )
+
 `1.1.1 <https://github.com/saltstack-formulas/fail2ban-formula/compare/v1.1.0...v1.1.1>`_ (2020-09-03)
 ----------------------------------------------------------------------------------------------------------
 

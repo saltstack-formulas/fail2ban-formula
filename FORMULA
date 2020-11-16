@@ -1,7 +1,7 @@
 name: fail2ban
 os: Debian, Ubuntu, Raspbian, RedHat, Fedora, CentOS, Suse, openSUSE
 os_family: Debian, RedHat, Suse
-version: 1.1.1
+version: 1.1.2
 release: 1
 minimum_version: 2016.11
 summary: Fail2ban formula
