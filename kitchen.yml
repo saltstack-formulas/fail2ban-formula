@@ -315,6 +315,7 @@ suites:
       state_top:
         base:
           '*':
+            - fail2ban._mapdata
             - misc.fake_log_files
             - fail2ban
       pillars:
