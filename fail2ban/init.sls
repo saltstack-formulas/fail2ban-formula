@@ -2,6 +2,7 @@
 # vim: ft=sls
 
 include:
-    - fail2ban.install
-    - fail2ban.config
-    - fail2ban.service
+  lookup:
+      - fail2ban.install
+      - fail2ban.config
+      - fail2ban.service
